@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,14 +8,16 @@ export class ProductService {
 
   items = [];
 
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
   addItem(item) {
     this.items.push(item);
   }
 
   getItems() {
-    return this.items;
+    return this.httpClient.get('/assets/product.json');
   }
 
   clearItems() {
