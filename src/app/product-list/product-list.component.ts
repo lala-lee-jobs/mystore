@@ -15,18 +15,10 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.productService.addItem({
-      name: 'Phone XL',
-      price: 799,
-      description: 'A large phone with one of the best screens'
+    this.productService.getItems().subscribe(data => {
+        this.products = data;
     });
-    this.productService.addItem({
-      name: 'Phone Mini',
-      price: 699,
-      description: 'A great phone with one of the best cameras'
-    });
-    this.products = this.productService.getItems();
-  }
+}
 
   share(product) {
     window.alert(`The product ${product.name} has been shared!`);
