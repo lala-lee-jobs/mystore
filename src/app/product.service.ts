@@ -6,22 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductService {
 
-  items = [];
+  private url = 'http://localhost:3000/products';
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
-  addItem(item) {
-    this.items.push(item);
-  }
-
   getItems() {
-    return this.httpClient.get('/assets/product.json');
+    return this.httpClient.get(this.url);
   }
 
-  clearItems() {
-    this.items = [];
-    return this.items;
-  }
 }
