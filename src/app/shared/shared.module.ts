@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { HttpClientModule } from '@angular/common/http';
+
 import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
@@ -7,11 +10,13 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     TopBarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   exports: [
     TopBarComponent,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

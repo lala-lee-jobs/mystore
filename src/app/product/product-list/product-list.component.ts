@@ -8,7 +8,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products = [];
+  products;
 
   constructor(
     // 注入服務到元件中
@@ -16,22 +16,9 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.productService.addItem({
-      name: 'Phone XL',
-      price: 799,
-      description: 'A large phone with one of the best screens'
-    });
-    this.productService.addItem({
-      name: 'Phone Mini',
-      price: 699,
-      description: 'A great phone with one of the best cameras'
-    });
-    this.productService.addItem({
-      name: 'Phone Standard',
-      price: 299,
-      description: ''
-    });
-    this.products = this.productService.getItems();
+     this.productService.getItems().subscribe(data => {
+       this.products = data;
+     });
   }
 
   share(product) {

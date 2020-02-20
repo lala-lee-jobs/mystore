@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,15 +8,12 @@ export class ProductService {
 
   items = [];
 
-  constructor() { }
-
-  // 加入商品至商品列表
-  addItem(item) {
-    this.items.push(item);
-  }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
   // 取得商品列表
   getItems() {
-    return this.items;
+    return this.httpClient.get('/assets/product.json');
   }
 }
