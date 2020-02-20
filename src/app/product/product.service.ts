@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductService {
 
-  items = [];
+  url = 'http://localhost:3000/products';
 
   constructor(
     private httpClient: HttpClient
@@ -14,6 +14,6 @@ export class ProductService {
 
   // 取得商品列表
   getItems() {
-    return this.httpClient.get('/assets/product.json');
+    return this.httpClient.get(this.url);
   }
 }
