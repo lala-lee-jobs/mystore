@@ -16,4 +16,9 @@ export class ProductService {
   getItems() {
     return this.httpClient.get(this.url);
   }
+
+  // 取得單個商品
+  getItem(id) {
+    return this.httpClient.get(`${this.url}/${id}`);
+  }
 }
