@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShippingService } from '../shipping.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-shipping',
@@ -15,7 +16,17 @@ export class ShippingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.shippingCosts = this.shippingService.getItems();
+    this.shippingService.getItems()
+    .pipe(
+        map((results: any[]) => {
+          return results.filter(r => r.price < 10);
+        })
+    ).subscribe(
+        (data) => {
+            console.log(data);
+            this.shippingCosts = data;
+        }
+    );
   }
 
 }
