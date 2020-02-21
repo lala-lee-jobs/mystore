@@ -5,8 +5,13 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
 
 const routes: Routes = [
   { path: '', redirectTo: 'product', pathMatch: 'full' },
-  { path: 'product', component: ProductListComponent },
-  { path: 'product/:id', component: ProductDetailComponent },
+  {
+    path: 'product',
+    children: [
+      { path: '', component: ProductListComponent},
+      { path: 'detail/:id', component: ProductDetailComponent},
+    ]
+  },
   {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
