@@ -18,9 +18,8 @@ export class ShippingComponent implements OnInit {
   ngOnInit(): void {
     this.shippingService.getItems()
     .pipe(
-        map((results: any[]) => {
-          return results.filter(r => r.price < 10);
-        })
+        map((results: any[]) => results.filter(r => r.price < 10)),
+        map((results: any[]) => [{type: 'Please Select'}, ...results])
     ).subscribe(
         (data) => {
             console.log(data);
