@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
+import { ShippingService } from 'src/app/shipping/shipping.service';
+import { forkJoin } from 'rxjs/internal/observable/forkJoin';
+import { map } from 'rxjs/internal/operators/map';
 
 @Component({
   selector: 'app-product-list',
@@ -12,13 +15,20 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     // 注入服務到元件中
-    private productService: ProductService
+    private productService: ProductService,
+    private shippingService: ShippingService
   ) { }
 
   ngOnInit(): void {
-     this.productService.getItems().subscribe(data => {
-       this.products = data;
-     });
+    //  this.productService.getItems().subscribe(data => {
+    //    this.products = data;
+    //  });
+    forkJoin([
+      this.productService.getItems(),
+      this.shippingService.getItems()
+    ]).subscribe(data => {
+      console.log('data', data);
+    });
   }
 
   share(product) {
