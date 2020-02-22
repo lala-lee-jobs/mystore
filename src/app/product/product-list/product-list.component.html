@@ -6,6 +6,12 @@
       {{ product.name }}
     </a>
   </h3>
+  <div>
+    <p>Price: {{ product.price }}</p>
+    <ng-container *ngFor="let s of shipping">
+      <p>Plus Shipping - {{s.type}}: {{product.price + s.price}} </p>
+    </ng-container>
+  </div>
   <p *ngIf="product.description">
     Description: {{ product.description }}
   </p>

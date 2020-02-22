@@ -12,6 +12,7 @@ import { map } from 'rxjs/internal/operators/map';
 export class ProductListComponent implements OnInit {
 
   products;
+  shipping;
 
   constructor(
     // 注入服務到元件中
@@ -26,8 +27,12 @@ export class ProductListComponent implements OnInit {
     forkJoin([
       this.productService.getItems(),
       this.shippingService.getItems()
-    ]).subscribe(data => {
+    ]).pipe(
+      map(([products, shipping]) => ({products, shipping}))
+    ).subscribe(data => {
       console.log('data', data);
+      this.products = data.products;
+      this.shipping = data.shipping;
     });
   }
 
