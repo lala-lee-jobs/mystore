@@ -6,8 +6,10 @@
   <form>
     <input type="text" #tInput (keyup)="printInput(tInput)">
     <input type="number" name="quantity"
-    [(ngModel)]="quantity"
-    #mQuantity="ngModel" />
+    [(ngModel)]="quantity" #mQuantity="ngModel"
+    required />
+    <!-- 使用JSON pipe觀察NgModel物件的errors屬性 -->
+    <pre>{{mQuantity.errors | json}}</pre>
   </form>
   <button (click)="addToCart(product)">Buy</button>
 </div>
