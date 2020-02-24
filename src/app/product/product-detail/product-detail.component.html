@@ -4,6 +4,7 @@
   <h4>{{ product.price | currency }}</h4>
   <p>{{ product.description }}</p>
   <form>
+    <input type="text" #tInput (keyup)="printInput(tInput)">
     <input type="number" [(ngModel)]="quantity" name="quantity"/>
   </form>
   <button (click)="addToCart(product)">Buy</button>

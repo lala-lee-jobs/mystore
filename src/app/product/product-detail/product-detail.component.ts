@@ -35,4 +35,9 @@ export class ProductDetailComponent implements OnInit {
     this.cartService.addToCart(product);
   }
 
+  printInput(tInput) {
+    console.log('tInput', tInput);
+    console.log('tInputValue', tInput.value);
+  }
+
 }
