@@ -12,6 +12,7 @@ import { switchMap } from 'rxjs/operators';
 export class ProductDetailComponent implements OnInit {
 
   product;
+  quantity = 1;
 
   constructor(
     private productService: ProductService,
