@@ -3,8 +3,8 @@
   <h3>{{ product.name }}</h3>
   <h4>{{ product.price | currency }}</h4>
   <p>{{ product.description }}</p>
-  <div>
-    <input type="number" [(ngModel)]="quantity"/>
-  </div>
+  <form>
+    <input type="number" [(ngModel)]="quantity" name="quantity"/>
+  </form>
   <button (click)="addToCart(product)">Buy</button>
 </div>
