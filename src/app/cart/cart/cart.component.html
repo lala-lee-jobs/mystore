@@ -3,5 +3,6 @@
 <div class="cart-item" *ngFor="let item of carts">
   <span>{{ item.name }}</span>
   <span>{{ item.price | currency }}</span>
+  <span>{{ item.quantity }}</span>
 </div>
 <button (click)="clearCarts()" *ngIf="carts.length">Clear</button>
