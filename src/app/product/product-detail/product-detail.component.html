@@ -3,14 +3,11 @@
   <h3>{{ product.name }}</h3>
   <h4>{{ product.price | currency }}</h4>
   <p>{{ product.description }}</p>
-  <form>
-    <input type="text" #tInput (keyup)="printInput(tInput)">
+  <form name="buyForm" #buyForm="ngForm">
     <input type="number" name="quantity"
     [(ngModel)]="quantity" #mQuantity="ngModel"
     required />
     <p [hidden]="mQuantity.pristine || mQuantity.valid">必填</p>
-    <!-- 使用JSON pipe觀察NgModel物件的errors屬性 -->
-    <pre>{{mQuantity.errors | json}}</pre>
   </form>
-  <button (click)="addToCart(product)">Buy</button>
+  <button (click)="addToCart(product)" [disabled]="buyForm.invalid">Buy</button>
 </div>
