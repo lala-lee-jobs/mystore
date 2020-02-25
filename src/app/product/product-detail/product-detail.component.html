@@ -8,6 +8,7 @@
     <input type="number" name="quantity"
     [(ngModel)]="quantity" #mQuantity="ngModel"
     required />
+    <p *ngIf="mQuantity.errors?.required">必填</p>
     <!-- 使用JSON pipe觀察NgModel物件的errors屬性 -->
     <pre>{{mQuantity.errors | json}}</pre>
   </form>
