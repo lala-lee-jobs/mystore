@@ -9,5 +9,6 @@
     required />
     <p [hidden]="mQuantity.pristine || mQuantity.valid">必填</p>
   </form>
-  <button (click)="addToCart(product)" [disabled]="buyForm.invalid">Buy</button>
+  <pre>{{buyForm.value | json}}</pre>
+  <button (click)="addToCart(product, buyForm)" [disabled]="buyForm.invalid">Buy</button>
 </div>

@@ -30,9 +30,11 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  addToCart(product) {
-    window.alert('Your product has been added to the cart!');
-    this.cartService.addToCart(product);
+  addToCart(product, buyForm) {
+    console.log('product', product);
+    console.log('buyForm', buyForm.value);
+    // window.alert('Your product has been added to the cart!');
+    // this.cartService.addToCart(product);
   }
 
   printInput(tInput) {
