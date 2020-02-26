@@ -15,6 +15,10 @@
   <form name="buyForm" [formGroup]="form">
     <input type="number" name="quantity"
     formControlName="quantity" />
+    <div [hidden]="quantity.pristine || quantity.valid">
+      <p *ngIf="quantity.errors?.required">必填</p>
+      <p *ngIf="quantity.errors?.max">超過最大可購買數量</p>
+    </div>
   </form>
   <pre>{{quantity.errors | json}}</pre>
   <button (click)="addToCart(product)">Buy</button>
