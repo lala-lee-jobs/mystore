@@ -40,7 +40,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart(product) {
-    this.cartService.addToCart(product);
+    const cartItem = Object.assign({}, product, this.form.value);
+    console.log('cartItem', cartItem);
+    this.cartService.addToCart(cartItem);
   }
 
   printInput(tInput) {

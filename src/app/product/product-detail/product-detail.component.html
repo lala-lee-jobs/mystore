@@ -20,6 +20,5 @@
       <p *ngIf="quantity.errors?.max">超過最大可購買數量</p>
     </div>
   </form>
-  <pre>{{quantity.errors | json}}</pre>
-  <button (click)="addToCart(product)">Buy</button>
+  <button (click)="addToCart(product)" [disabled]="form.invalid">Buy</button>
 </div>
