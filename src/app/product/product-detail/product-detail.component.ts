@@ -35,13 +35,8 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  addToCart(product, buyForm) {
-    console.log('product', product);
-    console.log('buyForm', buyForm.value);
-    const formValue = buyForm.value;
-    const carItem = Object.assign({}, product, {quantity: formValue.quantity });
-    console.log('carItem', carItem);
-    this.cartService.addToCart(carItem);
+  addToCart(product) {
+    this.cartService.addToCart(product);
   }
 
   printInput(tInput) {

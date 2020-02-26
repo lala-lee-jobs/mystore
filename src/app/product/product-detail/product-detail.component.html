@@ -9,8 +9,13 @@
     [(ngModel)]="quantity" #mQuantity="ngModel"
     required />
     <p [hidden]="mQuantity.pristine || mQuantity.valid">必填</p>
-  </form>
-  <pre>{{buyForm.value | json}}</pre>
+    </form>
+    <pre>{{buyForm.value | json}}</pre>
   -->
-  <button (click)="addToCart(product, buyForm)" [disabled]="buyForm.invalid">Buy</button>
+  <form name="buyForm" [formGroup]="form">
+    <input type="number" name="quantity"
+    formControlName="quantity" />
+  </form>
+  <pre>{{form.value | json}}</pre>
+  <button (click)="addToCart(product)">Buy</button>
 </div>
