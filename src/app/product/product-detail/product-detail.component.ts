@@ -3,7 +3,7 @@ import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/cart/cart.service';
 import { switchMap } from 'rxjs/operators';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder , Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-product-detail',
