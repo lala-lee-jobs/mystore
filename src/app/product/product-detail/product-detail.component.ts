@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/cart/cart.service';
 import { switchMap } from 'rxjs/operators';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,12 +13,13 @@ import { switchMap } from 'rxjs/operators';
 export class ProductDetailComponent implements OnInit {
 
   product;
-  quantity;
+  form: FormGroup;
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {

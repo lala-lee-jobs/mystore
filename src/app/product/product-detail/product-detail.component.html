@@ -3,12 +3,14 @@
   <h3>{{ product.name }}</h3>
   <h4>{{ product.price | currency }}</h4>
   <p>{{ product.description }}</p>
-  <form name="buyForm" #buyForm="ngForm">
+  <!--
+    <form name="buyForm" #buyForm="ngForm">
     <input type="number" name="quantity"
     [(ngModel)]="quantity" #mQuantity="ngModel"
     required />
     <p [hidden]="mQuantity.pristine || mQuantity.valid">必填</p>
   </form>
   <pre>{{buyForm.value | json}}</pre>
+  -->
   <button (click)="addToCart(product, buyForm)" [disabled]="buyForm.invalid">Buy</button>
 </div>
