@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { RouterModule } from '@angular/router';
@@ -15,14 +15,16 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     TopBarComponent,
     CommonModule,
     HttpClientModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }
