@@ -31,7 +31,7 @@ export class ProductDetailComponent implements OnInit {
       this.product = data;
     });
     this.form = this.fb.group({
-      quantity: 1
+      quantity: [1, [Validators.required, Validators.max(10)]]
     });
   }
 
