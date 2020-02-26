@@ -16,6 +16,6 @@
     <input type="number" name="quantity"
     formControlName="quantity" />
   </form>
-  <pre>{{form.get('quantity').errors | json}}</pre>
+  <pre>{{quantity.errors | json}}</pre>
   <button (click)="addToCart(product)">Buy</button>
 </div>

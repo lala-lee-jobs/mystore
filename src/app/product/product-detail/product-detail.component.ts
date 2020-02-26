@@ -3,7 +3,7 @@ import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/cart/cart.service';
 import { switchMap } from 'rxjs/operators';
-import { FormGroup, FormBuilder , Validators} from '@angular/forms';
+import { FormGroup, FormBuilder , Validators, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,6 +11,10 @@ import { FormGroup, FormBuilder , Validators} from '@angular/forms';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
+
+  get quantity(): FormControl {
+    return this.form.get('quantity') as FormControl;
+  }
 
   product;
   form: FormGroup;
