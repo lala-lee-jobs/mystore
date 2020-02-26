@@ -30,6 +30,9 @@ export class ProductDetailComponent implements OnInit {
     ).subscribe(data => {
       this.product = data;
     });
+    this.form = this.fb.group({
+      quantity: 1
+    });
   }
 
   addToCart(product, buyForm) {
